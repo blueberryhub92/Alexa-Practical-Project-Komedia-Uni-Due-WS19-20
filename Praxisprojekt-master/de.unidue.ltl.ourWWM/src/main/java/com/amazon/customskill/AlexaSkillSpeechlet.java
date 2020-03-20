@@ -11,18 +11,12 @@ package com.amazon.customskill;
 
 import java.sql.Connection;
 
-
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
-
-
-
-
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,11 +42,6 @@ import com.amazon.speech.speechlet.SpeechletV2;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
 import com.amazon.speech.ui.Reprompt;
 import com.amazon.speech.ui.SsmlOutputSpeech;
-
-/*import nlp.dkpro.backend.LinguisticPreprocessor;
-import nlp.dkpro.backend.NlpSingleton;*/
-
-
 
 
 /*
@@ -90,11 +79,8 @@ implements SpeechletV2
 	private static int sum9;
 	private static int sum777;
 	private static String question = "";
-	//private static String question2 = "";
-	//private static String antonym = "";
 	private static String Answer = "i don't know";
 	private static String correctAnswer = "";
-	//private static String correctAnswer2 = "";
 	public static enum RecognitionState {SingleThemes, MultiThemes,YesNoQuizLevelEnd, YesNoQuizLevelOne, YesNoQuizLevelTwo, YesNoQuizLevelThree, YesNoVokabelnEasy, YesNoVokabelnBasics, YesNoVokabelnHard, AnswerQuizLevelOne, AnswerQuizLevelTwo, AnswerQuizLevelThree, AnswerVokabelnEasy, Answer, AnswerTwo, AnswerThree, AnswerFour, AnswerFive, AnswerSix, AnswerSeven, YesNo, YesNoTwo, YesNoLevel, YesNoLevelTwo, OneTwo, VokabelQuiz, Vokabel, WhichPlayer, WhichPlayerThree, WhichPlayerFour, AgainOrMenu, resumequizzen, SingleQuiz, YesNoQuiz, YesNoVokabeln, AnswerVokabeln, AnswerQuiz};
 	private RecognitionState recState;
 	public static enum UserIntent {rules, phrases, adjectives, time, colours, verbs, antonyms, food, animals, answer, again, vocab, levelone, leveltwo, themes, onne, twwo, menu, playerone, playertwo, vocabulary, quiz, resume, no, quit, any, basics, expressions, nextlevel, Error, Quiz};
@@ -107,9 +93,9 @@ implements SpeechletV2
 	static String multiMsg = "You're in two player mode. Level one is up, collecting points! You can get the rules or start directly.";
 	static String multiRulesMsg = "Please clarify who wants to be player one and who wants to be player two. If you think you know the correct answer, say you're player number. You will get points if your answer is correct. If nobody knows the answer, say I don't know. You can choose from the different themes or get questions from all areas.";
 	static String antonymMsg = "What's the antonym of ";
-	static String wrongMsg = "That's wrong. The correct answer would be";
-	static String wrongVocMsg = "That's wrong. The correct answer would be";
-	static String dontknowMsg = "What a pity. The correct answer would be";
+	static String wrongMsg = "That's wrong. I understood ";
+	static String wrongMsg2 = "The correct answer would be ";
+	static String dontknowMsg = "What a pity. The correct answer would be ";
 	static String correctAnswerMsg = "The correct answer would be ";
 	static String continueMsg = "Continue?";
 	static String correctMsg = "Correct!";
@@ -205,11 +191,8 @@ implements SpeechletV2
 		    rs = ps.executeQuery();
 		    
 		    while(rs.next()) {
-		      /*int number = rs.getInt("number");*/
-		   //  responseWithFlavour3(question);
 		     question = rs.getString("de"); 
 		     correctAnswer = rs.getString("en");
-		     String Thema = rs.getString("Thema");
 		     return question+correctAnswer;
 		       
 		    }
@@ -226,10 +209,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("de"); 
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -245,10 +226,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("de"); 
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -264,10 +243,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("de");   
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -283,10 +260,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("de"); 
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -302,10 +277,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("word"); 
 				correctAnswer = rs.getString("antonym");
-				// String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -324,7 +297,6 @@ implements SpeechletV2
 				/*int number = rs.getInt("number");*/
 				question = rs.getString("de"); 
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -340,10 +312,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("de"); 
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -359,10 +329,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("de"); 
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -378,10 +346,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("de"); 
 				correctAnswer = rs.getString("en");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -397,10 +363,8 @@ implements SpeechletV2
 			rs = ps.executeQuery();
 	    
 			while(rs.next()) {
-				/*int number = rs.getInt("number");*/
 				question = rs.getString("field2"); 
 				correctAnswer = rs.getString("field3");
-				String Thema = rs.getString("Thema");
 				return question+correctAnswer;
 	       
 	    }
@@ -1284,7 +1248,7 @@ implements SpeechletV2
 							 res = askUserResponse(correctAnswerMsg+" "+correctAnswer+". "+continueMsg);
 				} else {
 					recState = RecognitionState.YesNoVokabelnEasy;
-					res = responseWithFlavour(wrongVocMsg+" "+correctAnswer+". "+continueMsg,7);
+					res = responseWithFlavour(wrongMsg+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+continueMsg,7);
 				}
 			}
 		return res;
@@ -1313,7 +1277,7 @@ implements SpeechletV2
 		  } else {
 			  		decreaseSum();
 					recState = RecognitionState.YesNoQuizLevelOne;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString(sumMsg, String.valueOf(sum), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString(sumMsg, String.valueOf(sum), " ")+" "+continueMsg, 7);
 				}
 			} 
 		return res;
@@ -1341,7 +1305,7 @@ implements SpeechletV2
 				} else {
 					decreaseSum();
 					recState = RecognitionState.YesNoQuizLevelTwo;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString(sumMsg, String.valueOf(sum), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString(sumMsg, String.valueOf(sum), " ")+" "+continueMsg, 7);
 				}
 			} 
 		return res;
@@ -1369,7 +1333,7 @@ implements SpeechletV2
 				} else {
 					decreaseSum();
 					recState = RecognitionState.YesNoQuizLevelThree;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString(sumMsg, String.valueOf(sum), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString(sumMsg, String.valueOf(sum), " ")+" "+continueMsg, 7);
 				}
 			} 
 		return res;
@@ -1393,7 +1357,7 @@ implements SpeechletV2
 					}
 				} else {
 					recState = RecognitionState.YesNoTwo;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+" "+buildString2(sumTwoMsg, String.valueOf(sum2), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+" "+buildString2(sumTwoMsg, String.valueOf(sum2), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3), " ")+" "+continueMsg, 7);
 				}
 			} 
 				return res;
@@ -1423,7 +1387,7 @@ implements SpeechletV2
 						res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5), " ")+" "+playerTwoWins+" "+continueLevelTwoMsg, 7);
 					} else {
 					recState = RecognitionState.YesNoLevel;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5), " ")+" "+continueMsg, 7);
 					}
 				}	
 			} 
@@ -1458,15 +1422,15 @@ implements SpeechletV2
 						increaseSum9();
 						if (sum2+sum4+sum8>sum3+sum5+sum9) {
 						recState = RecognitionState.AgainOrMenu;
-						res = responseWithFlavour(wrongMsg+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerOneWinsGame+" "+againOrMenuMsg, 9);
+						res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerOneWinsGame+" "+againOrMenuMsg, 9);
 						} else {
 							recState = RecognitionState.AgainOrMenu;
-							res = responseWithFlavour(wrongMsg+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerTwoWinsGame+" "+againOrMenuMsg, 9);
+							res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerTwoWinsGame+" "+againOrMenuMsg, 9);
 						}
 					
 				} else {
 					recState = RecognitionState.YesNoLevelTwo;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString2(sumLifesTwoMsg, String.valueOf(sum6), " ")+" "+buildString3(sumLifesThreeMsg, String.valueOf(sum7), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString2(sumLifesTwoMsg, String.valueOf(sum6), " ")+" "+buildString3(sumLifesThreeMsg, String.valueOf(sum7), " ")+" "+continueMsg, 7);
 				}
 			} 
 		}		return res;
@@ -1489,7 +1453,7 @@ implements SpeechletV2
 					}
 				} else {
 					recState = RecognitionState.YesNoTwo;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3), " ")+" "+continueMsg, 7);
 				}
 			} 
 				return res;
@@ -1516,10 +1480,10 @@ implements SpeechletV2
 					increaseSum4();
 					if (sum4 >= 40) {
 						recState = RecognitionState.YesNoLevelTwo;
-						res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5), " ")+" "+playerOneWins+" "+continueLevelTwoMsg, 9);
+						res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5), " ")+" "+playerOneWins+" "+continueLevelTwoMsg, 9);
 					} else {
 					recState = RecognitionState.YesNoLevel;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5), " ")+" "+continueMsg, 7);
 					}
 				}
 			} 
@@ -1554,15 +1518,15 @@ implements SpeechletV2
 						increaseSum8();
 						if (sum2+sum4+sum8<sum3+sum5+sum9) {
 						recState = RecognitionState.AgainOrMenu;
-						res = responseWithFlavour(wrongMsg+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerTwoWinsGame+" "+againOrMenuMsg, 9);
+						res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerTwoWinsGame+" "+againOrMenuMsg, 9);
 						} else {
 							recState = RecognitionState.AgainOrMenu;
-							res = responseWithFlavour(wrongMsg+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerOneWinsGame+" "+againOrMenuMsg, 9);
+							res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+buildString2(sumTwoMsg, String.valueOf(sum2+sum4+sum8), " ")+" "+buildString3(sumThreeMsg, String.valueOf(sum3+sum5+sum9), " ")+" "+playerOneWinsGame+" "+againOrMenuMsg, 9);
 						}
 					}
 				 else {
 					recState = RecognitionState.YesNoLevelTwo;
-					res = responseWithFlavour(wrongMsg+" "+correctAnswer+". "+buildString2(sumLifesTwoMsg, String.valueOf(sum6), " ")+" "+buildString3(sumLifesThreeMsg, String.valueOf(sum7), " ")+" "+continueMsg, 7);
+					res = responseWithFlavour(wrongMsg+" "+" "+userRequest+". "+wrongMsg2+" "+correctAnswer+". "+buildString2(sumLifesTwoMsg, String.valueOf(sum6), " ")+" "+buildString3(sumLifesThreeMsg, String.valueOf(sum7), " ")+" "+continueMsg, 7);
 				}
 			} 
 		}	return res;
