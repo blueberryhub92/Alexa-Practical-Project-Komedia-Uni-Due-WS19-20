@@ -47,6 +47,15 @@ You can add other themes of your choice which are included in the vocabulary tab
 If you want to do so, you should check on the database first and look up all the currently possible themes.
 If you want to add a theme in the code, it should look like this:
 
+	private String selectQuestion() {
+		
+		Answer = "i don't know";
+		
+		Connection con = AlexaSkillSpeechlet.connect(); 
+		  PreparedStatement ps = null; 
+		  ResultSet rs = null; 
+
+		switch(questions){ 
 		case 1000: try {
 			logger.info("Try-Block");
 			String sql = "SELECT * FROM Vokabelliste WHERE Thema LIKE 'insert a theme' ORDER BY RANDOM() LIMIT 1";
