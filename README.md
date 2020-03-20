@@ -49,12 +49,6 @@ If you want to add a theme in the selectQuestion()-function, it should look like
 
 	private String selectQuestion() {
 		
-		Answer = "i don't know";
-		
-		Connection con = AlexaSkillSpeechlet.connect(); 
-		  PreparedStatement ps = null; 
-		  ResultSet rs = null; 
-
 		switch(questions){ 
 		case 1000: try {
 			logger.info("Try-Block");
@@ -76,7 +70,7 @@ If you want to add a theme in the selectQuestion()-function, it should look like
 You also have to add the theme as String pattern in the class 'void recognizeUserIntent(String userRequest)':
 
 	void recognizeUserIntent(String userRequest) {
-		userRequest = userRequest.toLowerCase();
+		
 		String pattern1000 = "(.*)?(\\b insert a theme \\b)(.*)?";
 		
 		Pattern p100 = Pattern.compile(pattern100);
