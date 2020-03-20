@@ -38,3 +38,9 @@ Skill Setup
 
 9. You can now save, build and test your model in the Alexa Developer Console.
 10. If you want to use your skill with your Amazon Echo or Amazon Echo Plus, you need to go to https://alexa.amazon.com/ and activate it. You should now be able to start the skill by calling its invocation name.
+
+Edit Code (Change or add range of themes)
+
+Currently there are three databases used, two databases for phrases and antonyms, and one database for vocabulary. The vocabulary database is subdivided into more than 30 themes of which 8 are specified/used in the given code, meaning they are defined as a possible User Intent.
+The 8 themes plus phrases and antonyms can be selected specifically by the user during the use of the application.
+You can add other themes of your choice that are included in the database by adding their name as a User Intent in the class 'public static enum UserIntent' and adding a switch case to the function 'private String selectQuestion()'.
