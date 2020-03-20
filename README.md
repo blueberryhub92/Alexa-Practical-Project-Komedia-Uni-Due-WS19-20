@@ -1,4 +1,4 @@
-# Quizzitch
+# Alexa Skill Quizzitch
 
 This Alexa skill is a template for a quiz game skill called Quizzitch. Alexa will ask one or two users to translate german words or sentences into english words.
 
