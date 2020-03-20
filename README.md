@@ -52,7 +52,7 @@ If you want to add a theme in the selectQuestion()-function, it should look like
 		switch(questions){ 
 		case 1000: try {
 			logger.info("Try-Block");
-			String sql = "SELECT * FROM Vokabelliste WHERE Thema LIKE 'insert a theme' ORDER BY RANDOM() LIMIT 1";
+			String sql = "SELECT * FROM Vokabelliste WHERE Thema LIKE 'insert a theme from the database' ORDER BY RANDOM() LIMIT 1";
 			ps = con.prepareStatement(sql); 
 			rs = ps.executeQuery();
 	    
@@ -71,13 +71,13 @@ You also have to add the theme as String pattern in the class 'void recognizeUse
 
 	void recognizeUserIntent(String userRequest) {
 		
-		String pattern1000 = "(.*)?(\\b insert a theme \\b)(.*)?";
+		String pattern1000 = "(.*)?(\\b insert the english name of the theme here\\b)(.*)?";
 		
 		Pattern p100 = Pattern.compile(pattern100);
 		Matcher m100 = p100.matcher(userRequest);
 		
 		} else if (m100.find()) {
-			ourUserIntent = UserIntent.insert a theme;
+			ourUserIntent = UserIntent.insert the english name of the theme here;
 			} else {
 			ourUserIntent = UserIntent.Error;
 		}
