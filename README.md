@@ -46,7 +46,7 @@ The 8 themes plus phrases and antonyms can be selected specifically by the user 
 You can add other themes of your choice that are included in the database by adding their name as a User Intent in the class 'public static enum UserIntent' and adding a switch case to the function 'private String selectQuestion()'.
 This should look like this:
 
-		 case 12: try {
+		case 12: try {
 			logger.info("Try-Block");
 			String sql = "SELECT * FROM Vokabelliste WHERE Thema LIKE 'insert a theme' ORDER BY RANDOM() LIMIT 1";
 			ps = con.prepareStatement(sql); 
