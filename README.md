@@ -2,7 +2,7 @@
 
 This Alexa skill is a template for a quiz game skill called Quizzitch. Alexa will ask one or two users to translate german words or sentences into english words.
 
-Necessities
+## Necessities
 
 - Amazon Alexa Account
 - Tomcat (download Apache Tomcat at https://tomcat.apache.org/download-90.cgi and save it to a chosen directory)
@@ -22,7 +22,7 @@ Check whether or not Tomcat has started properly by writing 'localhost:8080' int
 
 Now you need to build a secure introspectable tunnel to your localhost using ngrok. To do so, go to https://ngrok.com/ and follow the instructions. Remember your localhost is on port 8080, so you need to run the following text to start a tunnel on port 8080: ./ngrok http 8080
 
-Skill Setup
+## Skill Setup
 
 1. Download the file 'Praxisprojekt-master'.
 2. Save file 'Praxisprojekt-master' to a chosen directory.
@@ -39,7 +39,7 @@ Skill Setup
 9. You can now save, build and test your model in the Alexa Developer Console.
 10. If you want to use your skill with your Amazon Echo or Amazon Echo Plus, you need to go to https://alexa.amazon.com/ and activate it. You should now be able to start the skill by calling its invocation name.
 
-Edit Code (Change or add range of themes)
+## Edit Code (Change or add range of themes)
 
 Currently there are three databases used, two databases for phrases and antonyms, and one database for vocabulary. The vocabulary database is subdivided into more than 30 themes of which 8 are specified/used in the given code, meaning they are defined as a possible User Intent.
 The 8 themes plus phrases and antonyms can be selected specifically by the user during the use of the application.
