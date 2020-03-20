@@ -90,4 +90,4 @@ You also have to add the theme as String pattern in the class 'void recognizeUse
 		logger.info("set ourUserIntent to " +ourUserIntent);
 	}
 
-The name you are using in class the class 'void recognizeUserIntent(String userRequest)' to select the theme must be the same as the one you are using in the class 'public static enum UserIntent'.
+The name you are using in the class 'void recognizeUserIntent(String userRequest)' to select the theme must be the same as the one you are using in the class 'public static enum UserIntent'.
