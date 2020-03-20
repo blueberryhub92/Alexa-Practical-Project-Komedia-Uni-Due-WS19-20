@@ -39,7 +39,7 @@ Now you need to build a secure introspectable tunnel to your localhost using ngr
 9. You can now save, build and test your model in the Alexa Developer Console.
 10. If you want to use your skill with your Amazon Echo or Amazon Echo Plus, you need to go to https://alexa.amazon.com/ and activate it. You should now be able to start the skill by calling its invocation name.
 
-## Edit Code (Change or add range of themes)
+## Edit Code (Change or add themes)
 
 Currently there are three tables used in our database, two tables for phrases and antonyms, and one table for vocabulary. The vocabulary table is subdivided into more than 30 themes of which 8 are specified/used in the given code, meaning they are defined as a possible User Intents.
 The 8 themes plus phrases and antonyms can be selected specifically by the user during the use of the application.
