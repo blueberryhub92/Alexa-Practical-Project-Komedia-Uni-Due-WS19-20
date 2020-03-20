@@ -44,7 +44,8 @@ Edit Code (Change or add range of themes)
 Currently there are three databases used, two databases for phrases and antonyms, and one database for vocabulary. The vocabulary database is subdivided into more than 30 themes of which 8 are specified/used in the given code, meaning they are defined as a possible User Intent.
 The 8 themes plus phrases and antonyms can be selected specifically by the user during the use of the application.
 You can add other themes of your choice that are included in the database by adding their name as a User Intent in the class 'public static enum UserIntent' and adding a switch case to the function 'private String selectQuestion()'.
-This should look like this:
+If you want to do so, you should check on the database first and look up all the currently possible themes.
+If you want to add a theme in the code, it should look like this:
 
 		case 12: try {
 			logger.info("Try-Block");
@@ -62,3 +63,4 @@ This should look like this:
 	  	   catch(SQLException e) {
 	    //System.out.println(e.toString());
 	  }
+
