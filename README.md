@@ -45,7 +45,7 @@ Currently there are three tables used in our database, two tables for phrases an
 The 8 themes plus phrases and antonyms can be selected specifically by the user during the use of the application.
 You can add other themes of your choice which are included in the vocabulary table by adding their name as a User Intent in the class 'public static enum UserIntent' and adding a switch case to the function 'private String selectQuestion()'.
 If you want to do so, you should check on the database first and look up all the currently possible themes.
-If you want to add a theme in the code, it should look like this:
+If you want to add a theme in the selectQuestion()-function, it should look like this:
 
 	private String selectQuestion() {
 		
