@@ -41,13 +41,13 @@ Now you need to build a secure introspectable tunnel to your localhost using ngr
 
 ## Edit Code (Change or add range of themes)
 
-Currently there are three databases used, two databases for phrases and antonyms, and one database for vocabulary. The vocabulary database is subdivided into more than 30 themes of which 8 are specified/used in the given code, meaning they are defined as a possible User Intent.
+Currently there are three tables used in our database, two tables for phrases and antonyms, and one table for vocabulary. The vocabulary table is subdivided into more than 30 themes of which 8 are specified/used in the given code, meaning they are defined as a possible User Intents.
 The 8 themes plus phrases and antonyms can be selected specifically by the user during the use of the application.
-You can add other themes of your choice that are included in the database by adding their name as a User Intent in the class 'public static enum UserIntent' and adding a switch case to the function 'private String selectQuestion()'.
+You can add other themes of your choice which are included in the vocabulary table by adding their name as a User Intent in the class 'public static enum UserIntent' and adding a switch case to the function 'private String selectQuestion()'.
 If you want to do so, you should check on the database first and look up all the currently possible themes.
 If you want to add a theme in the code, it should look like this:
 
-		case 12: try {
+		case 1000: try {
 			logger.info("Try-Block");
 			String sql = "SELECT * FROM Vokabelliste WHERE Thema LIKE 'insert a theme' ORDER BY RANDOM() LIMIT 1";
 			ps = con.prepareStatement(sql); 
@@ -64,3 +64,21 @@ If you want to add a theme in the code, it should look like this:
 	    //System.out.println(e.toString());
 	  }
 
+You also have to add the theme as String pattern in the class 'void recognizeUserIntent(String userRequest)':
+
+	void recognizeUserIntent(String userRequest) {
+		userRequest = userRequest.toLowerCase();
+		String pattern1000 = "(.*)?(\\b insert a theme \\b)(.*)?";
+		
+		Pattern p100 = Pattern.compile(pattern100);
+		Matcher m100 = p100.matcher(userRequest);
+		
+		} else if (m100.find()) {
+			ourUserIntent = UserIntent.insert a theme;
+			} else {
+			ourUserIntent = UserIntent.Error;
+		}
+		logger.info("set ourUserIntent to " +ourUserIntent);
+	}
+
+The name you are using in class the class 'void recognizeUserIntent(String userRequest)' to select the theme must be the same as the one you are using in the class 'public static enum UserIntent'.
